@@ -1,0 +1,30 @@
+//Kadene's Algorithm
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        
+        int n=nums.size();
+        if(n==0) return 0;
+        if(n==1) return nums[0];
+        
+        int max_curr=nums[0];
+        int max_global=nums[0];
+        for(int i=1;i<n;i++){
+            
+            if(max_curr<0){
+                max_curr=nums[i];
+            }
+            else{
+                max_curr=nums[i]+max_curr;
+            }
+            
+            max_global=max(max_global,max_curr);
+            
+        }
+        
+        return max_global;
+        
+        
+        
+    }
+};
